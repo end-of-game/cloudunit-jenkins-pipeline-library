@@ -1,4 +1,4 @@
-![CloudUnit Logo](https://github.com/Treeptik/cloudunit/master/documentation/img/Cloudunit_by_Treeptik.png "CloudUnit By Treeptik")
+![CloudUnit Logo](https://raw.githubusercontent.com/Treeptik/cloudunit/master/documentation/img/Cloudunit_by_Treeptik.png "CloudUnit By Treeptik")
 
 # CloudUnit Jenkins Pipeline Library
 
