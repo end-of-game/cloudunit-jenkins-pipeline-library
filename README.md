@@ -26,7 +26,7 @@ Example:
 ```groovy
 def cloudunitHost = "http://cloudunit.dev"
 
-cloudunit.cli(cloudunitHost, """
+cloudunit.cli(cloudunitHost, "johndoe", "****", """
   create-app --name ${env.BUILD_TAG} --type tomcat-8
   deploy --path target/ROOT.war
 """)
