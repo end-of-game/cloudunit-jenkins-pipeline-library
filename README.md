@@ -14,10 +14,12 @@ contains all the details for importing and using a Pipeline library.
 ## Available commands
 
 ```groovy
-cloudunit.cli(String host, String script)
+cloudunit(String host, String username, String password, String script)
 ```
 
 - `host` contains the URL to connect to a CloudUnit Manager
+- `username` CloudUnit user
+- `password` password
 - `script` contains a CloudUnit CLI script
 
 Connects to the CloudUnit Manager running at the specified URL, and runs the script, then disconnects.
@@ -26,7 +28,7 @@ Example:
 ```groovy
 def cloudunitHost = "http://cloudunit.dev"
 
-cloudunit.cli(cloudunitHost, "johndoe", "****", """
+cloudunit(cloudunitHost, "johndoe", "****", """
   create-app --name ${env.BRANCH_NAME} --type tomcat-8
   deploy --path target/ROOT.war
 """)
