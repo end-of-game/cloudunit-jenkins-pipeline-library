@@ -27,7 +27,7 @@ Example:
 def cloudunitHost = "http://cloudunit.dev"
 
 cloudunit.cli(cloudunitHost, "johndoe", "****", """
-  create-app --name ${env.BUILD_TAG} --type tomcat-8
+  create-app --name ${env.BRANCH_NAME} --type tomcat-8
   deploy --path target/ROOT.war
 """)
 ```
