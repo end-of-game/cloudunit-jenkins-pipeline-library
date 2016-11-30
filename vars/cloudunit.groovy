@@ -6,7 +6,7 @@ def call(String host, String username, String password, String script) {
         connect --login ${username} --password ${password} --host ${host}
         ${script}
         disconnect
-        EOF
+EOF
         rm ${jarfile}
     """
 }
