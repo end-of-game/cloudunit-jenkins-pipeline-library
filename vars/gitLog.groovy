@@ -4,3 +4,10 @@ def committer() {
     sh 'rm GIT_COMMITTER'
     result
 }
+
+def email() {
+    sh 'git --no-pager log -1 --pretty=format:"%ae" > GIT_COMMITTER_EMAIL'
+    result=readFile('GIT_COMMITTER_EMAIL')
+    sh 'rm GIT_COMMITTER_EMAIL'
+    result
+}
