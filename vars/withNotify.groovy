@@ -1,4 +1,4 @@
-def withNotification(boolean notifyResult = false, myFunction) {
+def call(boolean notifyResult = false, myFunction) {
   try {
     notifyBuild('STARTED')
     myFunction()
