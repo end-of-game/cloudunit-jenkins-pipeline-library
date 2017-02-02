@@ -1,16 +1,16 @@
-def call(boolean notifyResult = false, myFunction) {
+def call(String email, boolean notifyResult = false, myFunction) {
   try {
-    notifyBuild('STARTED')
+    notifyBuild(email, 'STARTED')
     myFunction()
   } catch (e) {
-    notifyBuild("FAILED")
+    notifyBuild(email, "FAILED")
     throw e
   } finally {
-    if (notifyResult) notifyBuild(currentBuild.result)
+    if (notifyResult) notifyBuild(email, currentBuild.result)
   }
 }
 
-def notifyBuild(String buildStatus = 'STARTED') {
+def notifyBuild(String email, String buildStatus = 'STARTED') {
   // build status of null means successful
   buildStatus =  buildStatus ?: 'SUCCESSFUL'
 
@@ -37,6 +37,6 @@ def notifyBuild(String buildStatus = 'STARTED') {
   emailext (
       subject: subject,
       body: details,
-      to: emailCommiter
+      to: email
     )
 }
