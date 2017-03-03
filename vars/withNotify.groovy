@@ -18,9 +18,10 @@ def notifyBuild(String email, String buildStatus = 'STARTED') {
   def colorCode = '#FF0000'
   def subject = "${buildStatus}: Job '${env.GIT_BRANCH}'"
   def summary = "${subject} (${env.BUILD_URL})"
-  def details = """STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
+  branch = env.BRANCH_NAME.replaceAll(/.*\//,"").toLowerCase().take(8)
+  def details = """Job '${env.JOB_NAME}':
     <p>Check Jenkins output at <a href='${env.BUILD_URL}'>${env.GIT_BRANCH}</a></p>
-    <p>Check CloudUnit application at <a href='http://web-'${env.GIT_BRANCH}'-kis.g2c.cloudunit.io/'>${env.GIT_BRANCH}</a></p>
+    <p>Check CloudUnit application at <a href=http://web-'${branch}'-kis.g2c.cloudunit.io/>${env.GIT_BRANCH}</a></p>
 """
 
   // Override default values based on build status
