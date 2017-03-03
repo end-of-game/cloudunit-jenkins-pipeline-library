@@ -16,7 +16,7 @@ def notifyBuild(String email, String buildStatus = 'STARTED', String details = "
   // Default values
   def colorName = 'RED'
   def colorCode = '#FF0000'
-  def subject = "${buildStatus}: Job '${env.GIT_BRANCH}'"
+  def subject = "${buildStatus}: Job '${env.BRANCH_NAME}'"
   def summary = "${subject} (${env.BUILD_URL})"
 
   // Override default values based on build status
