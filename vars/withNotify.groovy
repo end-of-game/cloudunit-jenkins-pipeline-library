@@ -16,10 +16,12 @@ def notifyBuild(String email, String buildStatus = 'STARTED') {
   // Default values
   def colorName = 'RED'
   def colorCode = '#FF0000'
-  def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
+  def subject = "${buildStatus}: Job '${env.GIT_BRANCH}'"
   def summary = "${subject} (${env.BUILD_URL})"
-  //def details = """STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
-    //Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"""
+  def details = """STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
+    <p>Check Jenkins output at <a href='${env.BUILD_URL}'>${env.GIT_BRANCH}</a></p>
+    <p>Check CloudUnit application at <a href='http://web-'${env.GIT_BRANCH}'-kis.g2c.cloudunit.io/'>${env.GIT_BRANCH}</a></p>
+"""
 
   // Override default values based on build status
   if (buildStatus == 'STARTED') {
@@ -35,7 +37,7 @@ def notifyBuild(String email, String buildStatus = 'STARTED') {
 
   emailext (
       subject: subject,
-      //body: details,
+      body: details,
       to: email
     )
 }
