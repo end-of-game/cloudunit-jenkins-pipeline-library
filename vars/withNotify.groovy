@@ -1,6 +1,5 @@
 def call(String email, boolean notifyResult = false, myFunction) {
   try {
-    notifyBuild(email, 'STARTED')
     myFunction()
   } catch (e) {
     notifyBuild(email, "FAILED")
