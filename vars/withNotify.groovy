@@ -18,8 +18,8 @@ def notifyBuild(String email, String buildStatus = 'STARTED') {
   def colorCode = '#FF0000'
   def subject = "${buildStatus}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'"
   def summary = "${subject} (${env.BUILD_URL})"
-  def details = """STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
-    Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"""
+  //def details = """STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':
+    //Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"""
 
   // Override default values based on build status
   if (buildStatus == 'STARTED') {
@@ -35,7 +35,7 @@ def notifyBuild(String email, String buildStatus = 'STARTED') {
 
   emailext (
       subject: subject,
-      body: details,
+      //body: details,
       to: email
     )
 }
