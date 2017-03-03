@@ -21,7 +21,7 @@ def notifyBuild(String email, String buildStatus = 'STARTED') {
   branch = env.BRANCH_NAME.replaceAll(/.*\//,"").toLowerCase().take(8)
   def details = """Job '${env.JOB_NAME}':
     <p>Check Jenkins output at <a href='${env.BUILD_URL}'>${env.GIT_BRANCH}</a></p>
-    <p>Check CloudUnit application at <a href=http://web-'${branch}'-kis.g2c.cloudunit.io/>${env.GIT_BRANCH}</a></p>
+    <p>Check CloudUnit application at <a href='http://web-${branch}-kis.g2c.cloudunit.io'/>${env.GIT_BRANCH}</a></p>
 """
 
   // Override default values based on build status
